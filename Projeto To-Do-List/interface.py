@@ -1,6 +1,7 @@
 amarelo = '\033[33m'
 branco = '\033[m'
 
+
 def menu(texto, simbolo):
     tamanho = len(texto) * 2
     print(f'{simbolo}' * tamanho)

@@ -55,11 +55,11 @@ def adicionar_tarefas():
 
 # Mostrar as Tarefas de Forma Organizada. Atualizar e deixar limpo
 def mostrar_tarefas_ordenadas(lista_de_Tarefa, cor1):
-    '''
+    """
     Função criada para listar tarefas em ordem.
     Param: Definir uma lista para deixar em ordem.
     Param: cor1 Define o início e fim da cor do texto.
-    '''
+    """
     for pos, tarefa in enumerate(lista_de_Tarefa):
        print(f'{f"[{pos+1}]":<6}--> {cor1}{tarefa}{cores[0]}')
     print()
