@@ -53,7 +53,7 @@ def adicionar_tarefas():
             break
 
 
-# Mostrar as Tarefas de Forma Organizada. Atualizar e deixar limpo
+# Mostrar as Tarefas de Forma Organizada.
 def mostrar_tarefas_ordenadas(lista_de_Tarefa, cor1):
     """
     Função criada para listar tarefas em ordem.
