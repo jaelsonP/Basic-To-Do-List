@@ -1,6 +1,6 @@
 from time import sleep
 
-from sistema_fucional import *
+from sistema import *
 
 # Programa Principal.
 while True:
@@ -16,11 +16,12 @@ while True:
     else:
         # Verificar a Opção Escolhida.
         if opcao == 1:
-            adicionar_tarefas()
+            cria_tarefas()
         elif opcao == 2:
-            exibir_tarefas()
+            exibi_tarefas()
         elif opcao == 3:
-            deletar_concluir_tarefas()
+            # deletar_concluir_tarefas()
+            pass
         elif opcao == 4:
             print()
             print(f'{cores[1]}ENCERRANDO O PROGRAMA...{cores[0]}\n')
