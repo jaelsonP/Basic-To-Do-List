@@ -80,9 +80,6 @@ def exibi_tarefas():
         print(f'{cores[1]}O usuário decidiu não colocar informações!{cores[0]}\n')
 
 
-if __name__ == '__main__':
-    exibi_tarefas()
-
 """
 # Função para marca conclusão de uma Tarefa.
 def concluir_tarefa():

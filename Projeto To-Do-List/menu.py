@@ -33,10 +33,42 @@ def nome_tarefas():
 
 def status_tarefa():
     status = ver_tarefas()
-    pass
-
-
+    lista_status = []
+    for statu in status:
+        statu_tarefa = statu.split()[0]
+        lista_status.append(statu_tarefa)
+    return lista_status
 
 
 def estado_tarefa(opcao):
-    pass
+    if opcao == 'todas':
+        tarefas = nome_tarefas()
+        status = status_tarefa()
+        for i in range(len(tarefas)):
+            if status[i] not in 'R':
+                print(f'{status[i]:<3} - {tarefas[i]}')
+            else:
+                print(f'{tarefas[i]}')
+
+    elif opcao == 'concluida':
+        tarefas = nome_tarefas()
+        status = status_tarefa()
+        for i in range(len(tarefas)):
+            if status[i] == '[X]':
+                print(f'{status[i]:<3} - {tarefas[i]}')
+
+    elif opcao == 'deletada':
+        tarefas = nome_tarefas()
+        status = status_tarefa()
+        for i in range(len(tarefas)):
+            if status[i] == 'R':
+                print(f'{tarefas[i]}')
+    else:
+        tarefas = nome_tarefas()
+        status = status_tarefa()
+        for i in range(len(tarefas)):
+            if status[i] == '[]':
+                print(f'{status[i]:<3} - {tarefas[i]}')
+
+    print()
+    
