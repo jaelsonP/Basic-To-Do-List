@@ -80,33 +80,41 @@ def exibi_tarefas():
         print(f'{cores[1]}O usuário decidiu não colocar informações!{cores[0]}\n')
 
 
-"""
+
 # Função para marca conclusão de uma Tarefa.
 def concluir_tarefa():
+    tarefas_pendentes = nome_tarefas()
+    pendentes = status_tarefa()
+    lista_pendentes = []
+    for pos in range(len(tarefas_pendentes)):
+        if pendentes[pos] == '[]':
+            lista_pendentes.append(tarefas_pendentes[pos])
+
     menu("!CONCLUSÃO DE TAREFA!", "=")
 
     while True:
-        if len(tarefasAndamento) == 0:
+        if len(lista_pendentes) == 0:
             print(f'{cores[1]}--> Não há Tarefas Pendentes! <--{cores[0]}\n')
             break
-        mostrar_tarefas_ordenadas(tarefasAndamento, cores[0])
+        for pos in range(len(lista_pendentes)):
+            print(f'{pos+1:<2} [] {lista_pendentes[pos]}')
+        print()
         try:
             concluir = int(input(f'{cores[3]}Tarefa concluída ->{cores[0]} '))
         except ValueError:
             print(f'{cores[1]}ERRO! Apenas números Inteiros.{cores[0]}\n')
 
         else:
-            if (concluir - 1) >= len(tarefasAndamento) or (concluir - 1) <= -1:
+            if (concluir - 1) >= len(lista_pendentes) or (concluir - 1) <= -1:
                 print(f'{cores[1]}ERRO! Tarefa não encontrada. Tente Novamente\n{cores[0]}')
 
             else:
                 # Adicionar a Lista de tarefas Concluídas.
-                salvarPro = tarefasAndamento[concluir - 1][3::]
-                listaTarefas.pop(concluir - 1)
-                tarefasAndamento.pop(concluir - 1)
-                tarefasConcluida.append(f'{cores[2]}[x] {salvarPro}{cores[0]}')   # Cor verde
-                listaTarefas.insert(concluir, f'{cores[2]}[x] {salvarPro}{cores[0]}')
+                tarefa_conluida = f'[X] {lista_pendentes[concluir-1]}'
+                altera_tarefa(tarefas_pendentes.index(lista_pendentes[concluir-1]), tarefa_conluida)
                 break
+
+
 
 
 # Função para deletar tarefas.
@@ -159,4 +167,6 @@ def deletar_concluir_tarefas():
                 else:
                     break
 
-"""
+
+if __name__ == "__main__":
+    deletar_concluir_tarefas()

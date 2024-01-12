@@ -9,6 +9,15 @@ def ver_tarefas():
         return listaTarefas
 
 
-def renomear_tarefa():
-    pass
+def altera_tarefa(pos, tarefa):
+    with open("Tarefas.txt", "r+") as tarefas:
+        lista_tarefas = tarefas.readlines()
+
+        if 0 <= pos < len(lista_tarefas):
+            lista_tarefas[pos] = f'{tarefa}\n'
+
+            tarefas.seek(0)
+            tarefas.writelines(lista_tarefas)
+
+
 
