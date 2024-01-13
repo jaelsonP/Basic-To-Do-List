@@ -80,9 +80,9 @@ def exibi_tarefas():
         print(f'{cores[1]}O usuário decidiu não colocar informações!{cores[0]}\n')
 
 
-
 # Função para marca conclusão de uma Tarefa.
 def concluir_tarefa():
+
     tarefas_pendentes = nome_tarefas()
     pendentes = status_tarefa()
     lista_pendentes = []
@@ -96,9 +96,11 @@ def concluir_tarefa():
         if len(lista_pendentes) == 0:
             print(f'{cores[1]}--> Não há Tarefas Pendentes! <--{cores[0]}\n')
             break
+
         for pos in range(len(lista_pendentes)):
-            print(f'{pos+1:<2} [] {lista_pendentes[pos]}')
+            print(f'{pos+1:<2} - [] {lista_pendentes[pos]}')
         print()
+
         try:
             concluir = int(input(f'{cores[3]}Tarefa concluída ->{cores[0]} '))
         except ValueError:
@@ -110,42 +112,50 @@ def concluir_tarefa():
 
             else:
                 # Adicionar a Lista de tarefas Concluídas.
-                tarefa_conluida = f'[X] {lista_pendentes[concluir-1]}'
+                tarefa_conluida = f'[X] {lista_pendentes[concluir-1]}\n'
                 altera_tarefa(tarefas_pendentes.index(lista_pendentes[concluir-1]), tarefa_conluida)
+                atualizar()
                 break
-
-
 
 
 # Função para deletar tarefas.
 def deletar_tarefa():
+    tarefas_concluida = nome_tarefas()
+    concluido = status_tarefa()
+    lista_concluida = []
+    for pos in range(len(concluido)):
+        if concluido[pos] == '[X]':
+            lista_concluida.append(tarefas_concluida[pos])
+
     menu("!DELETAR TAREFA!", "=")
     while True:
-        if len(tarefasConcluida) == 0:
+        if len(lista_concluida) == 0:
             print(f'{cores[1]}--> Não há mais Tarefas Concluídas para serem Deletadas <--{cores[0]}\n')
             break
-        mostrar_tarefas_ordenadas(tarefasConcluida, cores[0])
+        for pos in range(len(lista_concluida)):
+            print(f'{pos+1:<2} - [X] {lista_concluida[pos]}')
+        print()
+
         try:
             deletar = int(input(f'{cores[3]}Deletar Tarefa ->{cores[0]} '))
         except ValueError:
             print(f'{cores[1]}ERRO! Apenas números Inteiros.{cores[0]}\n')
 
         else:
-            if (deletar - 1) >= len(tarefasConcluida) or (deletar - 1) <= -1:
+            if (deletar - 1) >= len(lista_concluida) or (deletar - 1) <= -1:
                 print(f'{cores[1]}ERRO! Tarefa não encontrada. Tente Novamente{cores[0]}\n')
 
             else:
                 # Deletar Tarefas Concluídas.
-                deletarPro = tarefasConcluida[deletar - 1][9::]
-                tarefasConcluida.pop(deletar - 1)
-                listaTarefas.pop(deletar - 1)
-                tarefasDeletada.append(deletarPro)
+                deleta_tarefa = f'R {lista_concluida[deletar-1]}\n'
+                altera_tarefa(tarefas_concluida.index(lista_concluida[deletar-1]), deleta_tarefa)
+                atualizar()
                 break
 
 
 # Função para Concluir/Deletar Tarefas.
 def deletar_concluir_tarefas():
-    menu("Deletar/Concluir Tarefa" , "=")
+    menu("Deletar/Concluir Tarefa", "=")
 
     while True:
         opçao("Marca Tarefa Concluída", "Deletar Tarefa", "Sair")
@@ -167,6 +177,3 @@ def deletar_concluir_tarefas():
                 else:
                     break
 
-
-if __name__ == "__main__":
-    deletar_concluir_tarefas()

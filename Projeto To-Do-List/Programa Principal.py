@@ -20,8 +20,7 @@ while True:
         elif opcao == 2:
             exibi_tarefas()
         elif opcao == 3:
-            # deletar_concluir_tarefas()
-            pass
+            deletar_concluir_tarefas()
         elif opcao == 4:
             print()
             print(f'{cores[1]}ENCERRANDO O PROGRAMA...{cores[0]}\n')
