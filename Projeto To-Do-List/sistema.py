@@ -56,7 +56,7 @@ def exibi_tarefas():
         # Verificar Entrada e Tratar erros.
         while True:
             try:
-                opçao("Tarefas", "Tarefas Concluídas", "Tarefas Deletadas", "Tarefas Em Andamento", "Sair")
+                opcao("Tarefas", "Tarefas Concluídas", "Tarefas Deletadas", "Tarefas Em Andamento", "Sair")
                 resposta = int(input(f'{cores[3]}Sua Opção -> {cores[0]}'))
             except ValueError:
                 print(f'{cores[1]}ERRO! Digite um número Inteiro.{cores[0]}\n')
@@ -82,10 +82,10 @@ def exibi_tarefas():
 
 # Função para marca conclusão de uma Tarefa.
 def concluir_tarefa():
-
     tarefas_pendentes = nome_tarefas()
     pendentes = status_tarefa()
     lista_pendentes = []
+
     for pos in range(len(tarefas_pendentes)):
         if pendentes[pos] == '[]':
             lista_pendentes.append(tarefas_pendentes[pos])
@@ -158,22 +158,21 @@ def deletar_concluir_tarefas():
     menu("Deletar/Concluir Tarefa", "=")
 
     while True:
-        opçao("Marca Tarefa Concluída", "Deletar Tarefa", "Sair")
+        opcao("Marca Tarefa Concluída", "Deletar Tarefa", "Sair")
         try:
-            opcao = int(input(f'{cores[3]}Sua opção ->{cores[0]} '))
+            resposta = int(input(f'{cores[3]}Sua opção ->{cores[0]} '))
         except ValueError:
             print(f'{cores[1]}ERRO! Apenas números Inteiros.{cores[0]}\n')
 
         else:
-            if opcao not in [1, 2, 3]:
+            if resposta not in [1, 2, 3]:
                 print(f'{cores[1]}Opção não encontrada Tente Novamente.{cores[0]}\n')
 
             else:
                 print()
-                if opcao == 1:
+                if resposta == 1:
                     concluir_tarefa()
-                elif opcao == 2:
+                elif resposta == 2:
                     deletar_tarefa()
                 else:
                     break
-
