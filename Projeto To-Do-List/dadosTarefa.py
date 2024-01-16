@@ -16,11 +16,10 @@ def altera_tarefa(pos, tarefa):
         lista_tarefas = tarefas.readlines()
 
         # Atualizar a Tarefa desejada.
-        if 0 <= pos < len(lista_tarefas):
-            lista_tarefas[pos] = f'{tarefa}'
+        lista_tarefas[pos] = f'{tarefa}\n'
 
-            tarefas.seek(0)  # Direcionar para o começo.
-            tarefas.writelines(lista_tarefas)  # Reescrever com suas alterações.
+        tarefas.seek(0)  # Direcionar para o começo.
+        tarefas.writelines(lista_tarefas)  # Reescrever com suas alterações.
 
 
 def atualizar():
@@ -37,3 +36,10 @@ def atualizar():
     # Retirar espaços em branco.
     with open("Tarefas.txt", "w") as tarefas:
         tarefas.writelines(nova_lista)
+
+
+def pesquisar(tarefa):
+    pesquisar_tarefa = tarefa.strip()
+    for i, v in enumerate(ver_tarefas()):
+        if pesquisar_tarefa == v.strip():
+            return i
