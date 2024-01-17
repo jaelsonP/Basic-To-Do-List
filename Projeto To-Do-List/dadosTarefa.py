@@ -40,6 +40,7 @@ def atualizar():
 
 def pesquisar(tarefa):
     pesquisar_tarefa = tarefa.strip()
+
     for i, v in enumerate(ver_tarefas()):
         if pesquisar_tarefa == v.strip():
             return i

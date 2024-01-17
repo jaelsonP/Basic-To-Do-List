@@ -167,6 +167,7 @@ def deletar_tarefa():
 
                     altera_tarefa(pesquisar(tarefa_concluida), deleta_tarefa)
                     break
+
     except KeyboardInterrupt:
         print(f'{cores[1]}...{cores[0]}\n')
         return True

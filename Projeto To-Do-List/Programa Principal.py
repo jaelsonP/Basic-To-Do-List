@@ -36,6 +36,7 @@ while True:
             else:
                 print(f'{cores[1]}ERRO! Opção Invalida{cores[0]}\n')
             sleep(1)
+
     except KeyboardInterrupt:
         print(f'{cores[1]}...{cores[0]}\n')
 

@@ -81,7 +81,7 @@ def estado_tarefa(estado):
             if status[i] == 'R':
                 print(f'{cores[1]}{tarefas[i]}{cores[0]}')
 
-    # Listar tarefas Pendentes
+    # Listar tarefas Pendentes.
     else:
         for i in range(comprimento):
             if status[i] == '[]':
